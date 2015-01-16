@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA06A09C1A69B05E0027176A /* unixts58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = DA06A0981A69B05E0027176A /* unixts58x58.png */; };
+		DA06A09D1A69B05E0027176A /* unixts80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = DA06A0991A69B05E0027176A /* unixts80x80.png */; };
+		DA06A09E1A69B05E0027176A /* unixts120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = DA06A09A1A69B05E0027176A /* unixts120x120.png */; };
+		DA06A09F1A69B05E0027176A /* unixts180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = DA06A09B1A69B05E0027176A /* unixts180x180.png */; };
+		DA06A0A11A69B2520027176A /* unixts87x87.png in Resources */ = {isa = PBXBuildFile; fileRef = DA06A0A01A69B2520027176A /* unixts87x87.png */; };
 		DA7FF9501A64638B0035623E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7FF94F1A64638B0035623E /* AppDelegate.swift */; };
 		DA7FF9521A64638B0035623E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7FF9511A64638B0035623E /* ViewController.swift */; };
 		DA7FF9551A64638B0035623E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA7FF9531A64638B0035623E /* Main.storyboard */; };
@@ -27,6 +32,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA06A0981A69B05E0027176A /* unixts58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unixts58x58.png; path = ../../../../Dropbox/unixts58x58.png; sourceTree = "<group>"; };
+		DA06A0991A69B05E0027176A /* unixts80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unixts80x80.png; path = ../../../../Dropbox/unixts80x80.png; sourceTree = "<group>"; };
+		DA06A09A1A69B05E0027176A /* unixts120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unixts120x120.png; path = ../../../../Dropbox/unixts120x120.png; sourceTree = "<group>"; };
+		DA06A09B1A69B05E0027176A /* unixts180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unixts180x180.png; path = ../../../../Dropbox/unixts180x180.png; sourceTree = "<group>"; };
+		DA06A0A01A69B2520027176A /* unixts87x87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unixts87x87.png; sourceTree = "<group>"; };
 		DA7FF94A1A64638B0035623E /* unixtime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = unixtime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7FF94E1A64638B0035623E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA7FF94F1A64638B0035623E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +91,11 @@
 		DA7FF94C1A64638B0035623E /* unixtime */ = {
 			isa = PBXGroup;
 			children = (
+				DA06A0981A69B05E0027176A /* unixts58x58.png */,
+				DA06A0A01A69B2520027176A /* unixts87x87.png */,
+				DA06A0991A69B05E0027176A /* unixts80x80.png */,
+				DA06A09A1A69B05E0027176A /* unixts120x120.png */,
+				DA06A09B1A69B05E0027176A /* unixts180x180.png */,
 				DA7FF94F1A64638B0035623E /* AppDelegate.swift */,
 				DA7FF9511A64638B0035623E /* ViewController.swift */,
 				DA7FF9531A64638B0035623E /* Main.storyboard */,
@@ -199,6 +214,11 @@
 				DA7FF9551A64638B0035623E /* Main.storyboard in Resources */,
 				DA7FF95A1A64638C0035623E /* LaunchScreen.xib in Resources */,
 				DA7FF9571A64638C0035623E /* Images.xcassets in Resources */,
+				DA06A0A11A69B2520027176A /* unixts87x87.png in Resources */,
+				DA06A09F1A69B05E0027176A /* unixts180x180.png in Resources */,
+				DA06A09D1A69B05E0027176A /* unixts80x80.png in Resources */,
+				DA06A09C1A69B05E0027176A /* unixts58x58.png in Resources */,
+				DA06A09E1A69B05E0027176A /* unixts120x120.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

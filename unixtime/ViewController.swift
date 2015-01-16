@@ -114,6 +114,11 @@ class ViewController: UIViewController, ADBannerViewDelegate {
             // hack - fix populateNow
             if (nw != nil) {
                 var nowf:NSDate=nw!
+                var nti=nowf.timeIntervalSince1970
+                if (nti > Double(0x7fffffff) || nti < 0) {
+                    errorText.text="Date out of UNIX TS Range"
+                }
+                else {
                 NSLog("%f", nowf.timeIntervalSince1970)
                 var now:Int=Int(nowf.timeIntervalSince1970)
                 
@@ -123,8 +128,11 @@ class ViewController: UIViewController, ADBannerViewDelegate {
                 else {
                     tsTextField.text=String(format:"%u", now)
                 }
+                
                 errorText.text=""
+                
                 self.view.endEditing(true)
+                }
             }
             else {
                 // it's invalid
