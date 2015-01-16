@@ -19,7 +19,7 @@ class ViewController: UIViewController, ADBannerViewDelegate {
     
     var time:timeval=timeval(tv_sec: 0, tv_usec: 0)
     var dohex:Bool=false
-    var doUTC:Bool=true
+//    var doUTC:Bool=true
     var timer = NSTimer()
 
     @IBOutlet weak var errorText: UILabel!
@@ -54,84 +54,89 @@ class ViewController: UIViewController, ADBannerViewDelegate {
     
     @IBOutlet weak var recalcButton: UIButton!
     
+    func populateFromDate() {
+        var dateValid:Bool=true
+        
+        var ds : String = yearTextField.text+"-"+monthTextField.text+"-"+dayTextField.text+" "+hourTextField.text+":"+minuteTextField.text+":"+secondTextField.text
+        NSLog(ds)
+        
+        self.view.endEditing(true)
+        
+        if (yearTextField.text.isEmpty || yearTextField.text.toInt() < 1970 || yearTextField.text.toInt() > 2038) {
+            dateValid=false;
+            errorText.text="Year out of range 1970-2038"
+        }
+        else {
+            if (monthTextField.text.isEmpty || monthTextField.text.toInt() < 1 || monthTextField.text.toInt() > 12) {
+                dateValid=false;
+                errorText.text="Month out of range 1-12"
+            }
+            else {
+                if (dayTextField.text.isEmpty || dayTextField.text.toInt() < 1 || dayTextField.text.toInt() > 31) {
+                    dateValid=false;
+                    errorText.text="Day out of range"
+                }
+                else {
+                    if (hourTextField.text.isEmpty || hourTextField.text.toInt() < 0 || hourTextField.text.toInt() > 23) {
+                        dateValid=false;
+                        errorText.text="Hour out of range 0-23"
+                    }
+                    else {
+                        if (minuteTextField.text.isEmpty || minuteTextField.text.toInt() < 0 || minuteTextField.text.toInt() > 59) {
+                            dateValid=false;
+                            errorText.text="Minute out of range 0-59"
+                        }
+                        else {
+                            if (secondTextField.text.isEmpty || secondTextField.text.toInt() < 0 || secondTextField.text.toInt() > 59) {
+                                dateValid=false;
+                                errorText.text="Second out of range 0-59"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        if (dateValid) {
+            var dateFormatter = NSDateFormatter()
+            /*
+            if (doUTC) {
+            var timeZone=NSTimeZone(abbreviation:"UTC")
+            dateFormatter.timeZone=timeZone
+            }
+            */
+            
+            dateFormatter.dateFormat = "yyyy-M-d H:m:s"
+            
+            // convert string into date
+            
+            var nw:NSDate? = dateFormatter.dateFromString(ds)
+            // hack - fix populateNow
+            if (nw != nil) {
+                var nowf:NSDate=nw!
+                NSLog("%f", nowf.timeIntervalSince1970)
+                var now:Int=Int(nowf.timeIntervalSince1970)
+                
+                if dohex {
+                    tsTextField.text=String(format:"%x", now)
+                }
+                else {
+                    tsTextField.text=String(format:"%u", now)
+                }
+                errorText.text=""
+                self.view.endEditing(true)
+            }
+            else {
+                // it's invalid
+                errorText.text="Invalid date entered-check MM/DD"
+            }
+        }
+    }
+    
     @IBAction func recalcButton(sender: AnyObject) {
         
         if (dateEdited) {
-            var dateValid:Bool=true
-            
-            var ds : String = yearTextField.text+"-"+monthTextField.text+"-"+dayTextField.text+" "+hourTextField.text+":"+minuteTextField.text+":"+secondTextField.text
-            NSLog(ds)
-            
-            self.view.endEditing(true)
-            
-            if (yearTextField.text.isEmpty || yearTextField.text.toInt() < 1970 || yearTextField.text.toInt() > 2038) {
-                dateValid=false;
-                errorText.text="Year out of range 1970-2038"
-            }
-            else {
-                if (monthTextField.text.isEmpty || monthTextField.text.toInt() < 1 || monthTextField.text.toInt() > 12) {
-                    dateValid=false;
-                    errorText.text="Month out of range 1-12"
-                }
-                else {
-                    if (dayTextField.text.isEmpty || dayTextField.text.toInt() < 1 || dayTextField.text.toInt() > 31) {
-                        dateValid=false;
-                        errorText.text="Day out of range"
-                    }
-                    else {
-                        if (hourTextField.text.isEmpty || hourTextField.text.toInt() < 0 || hourTextField.text.toInt() > 23) {
-                            dateValid=false;
-                            errorText.text="Hour out of range 0-23"
-                        }
-                        else {
-                            if (minuteTextField.text.isEmpty || minuteTextField.text.toInt() < 0 || minuteTextField.text.toInt() > 59) {
-                                dateValid=false;
-                                errorText.text="Minute out of range 0-59"
-                            }
-                            else {
-                                if (secondTextField.text.isEmpty || secondTextField.text.toInt() < 0 || secondTextField.text.toInt() > 59) {
-                                    dateValid=false;
-                                    errorText.text="Second out of range 0-59"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            
-            if (dateValid) {
-                var dateFormatter = NSDateFormatter()
-
-                if (doUTC) {
-                    var timeZone=NSTimeZone(abbreviation:"UTC")
-                    dateFormatter.timeZone=timeZone
-                }
-                
-                dateFormatter.dateFormat = "yyyy-M-d H:m:s"
-                
-                // convert string into date
-                
-                var nw:NSDate? = dateFormatter.dateFromString(ds)
-                // hack - fix populateNow
-                if (nw != nil) {
-                    var nowf:NSDate=nw!
-                    NSLog("%f", nowf.timeIntervalSince1970)
-                    var now:Int=Int(nowf.timeIntervalSince1970)
-                    
-                    if dohex {
-                        tsTextField.text=String(format:"%x", now)
-                    }
-                    else {
-                        tsTextField.text=String(format:"%u", now)
-                    }
-                    errorText.text=""
-                    self.view.endEditing(true)
-                }
-                else {
-                    // it's invalid
-                    errorText.text="Invalid date entered-check MM/DD"
-                }
-            }
+            populateFromDate()
         }
         else {
             // TS must have been edited most recently
@@ -308,18 +313,6 @@ class ViewController: UIViewController, ADBannerViewDelegate {
     
     @IBOutlet weak var nowButton: UIButton!
     
-
-    @IBOutlet weak var utcSelectValue: UISegmentedControl!
-    @IBAction func utcSelect(sender: AnyObject) {
-        if utcSelectValue.selectedSegmentIndex == 0 {
-                doUTC=true
-        }
-        else {
-                doUTC=false
-        }
-    }
-
-    
     @IBAction func autoManualSelect(sender: AnyObject) {
         var enabled:Bool
         
@@ -367,7 +360,12 @@ class ViewController: UIViewController, ADBannerViewDelegate {
         }
         
         if (tsTextField.text.isEmpty) {
-            populateNow()
+            if (tsEdited) {
+                populateNow()
+            }
+            else {
+                populateFromDate()
+            }
         }
         else {
             populateFromTS(currFormatIsHex)
