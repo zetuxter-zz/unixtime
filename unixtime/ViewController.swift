@@ -49,7 +49,7 @@ class ViewController: UIViewController, ADBannerViewDelegate {
     }
     
     @IBAction func monthValueChanged(sender: AnyObject) {
-        println("it changed")
+        print("it changed")
     }
     
     @IBOutlet weak var recalcButton: UIButton!
@@ -57,37 +57,40 @@ class ViewController: UIViewController, ADBannerViewDelegate {
     func populateFromDate() {
         var dateValid:Bool=true
         
-        var ds : String = yearTextField.text+"-"+monthTextField.text+"-"+dayTextField.text+" "+hourTextField.text+":"+minuteTextField.text+":"+secondTextField.text
+        var ds = yearTextField.text!;
+        ds=ds+"-"+monthTextField.text!
+        ds=ds+"-"+dayTextField.text!+"-"+hourTextField.text!;
+        ds=ds+":"+minuteTextField.text!+":"+secondTextField.text!
         NSLog(ds)
         
         self.view.endEditing(true)
-        
-        if (yearTextField.text.isEmpty || yearTextField.text.toInt() < 1970 || yearTextField.text.toInt() > 2038) {
+
+        if (yearTextField.text!.isEmpty || Int(yearTextField.text!) < 1970 || Int(yearTextField.text!)! > 2038) {
             dateValid=false;
             errorText.text="Year out of range 1970-2038"
         }
         else {
-            if (monthTextField.text.isEmpty || monthTextField.text.toInt() < 1 || monthTextField.text.toInt() > 12) {
+            if (monthTextField.text!.isEmpty || Int(monthTextField.text!) < 1 || Int(monthTextField.text!) > 12) {
                 dateValid=false;
                 errorText.text="Month out of range 1-12"
             }
             else {
-                if (dayTextField.text.isEmpty || dayTextField.text.toInt() < 1 || dayTextField.text.toInt() > 31) {
+                if (dayTextField.text!.isEmpty || Int(dayTextField.text!) < 1 || Int(dayTextField.text!)! > 31) {
                     dateValid=false;
                     errorText.text="Day out of range"
                 }
                 else {
-                    if (hourTextField.text.isEmpty || hourTextField.text.toInt() < 0 || hourTextField.text.toInt() > 23) {
+                    if (hourTextField.text!.isEmpty || Int(hourTextField.text!) < 0 || Int(hourTextField.text!)! > 23) {
                         dateValid=false;
                         errorText.text="Hour out of range 0-23"
                     }
                     else {
-                        if (minuteTextField.text.isEmpty || minuteTextField.text.toInt() < 0 || minuteTextField.text.toInt() > 59) {
+                        if (minuteTextField.text!.isEmpty || Int(minuteTextField.text!)! < 0 || Int(minuteTextField.text!)! > 59) {
                             dateValid=false;
                             errorText.text="Minute out of range 0-59"
                         }
                         else {
-                            if (secondTextField.text.isEmpty || secondTextField.text.toInt() < 0 || secondTextField.text.toInt() > 59) {
+                            if (secondTextField.text!.isEmpty || Int(secondTextField.text!) < 0 || Int(secondTextField.text!) > 59) {
                                 dateValid=false;
                                 errorText.text="Second out of range 0-59"
                             }
@@ -149,17 +152,17 @@ class ViewController: UIViewController, ADBannerViewDelegate {
         else {
             // TS must have been edited most recently
             // validate
-            if (!tsTextField.text.isEmpty) {
+            if (!tsTextField.text!.isEmpty) {
                 var now:NSDate
                 if (!dohex) {
-                    if tsTextField.text.toInt() != nil {
-                        var tsvi=tsTextField.text.toInt()!
+                    if Int(tsTextField.text!) != nil {
+                        let tsvi=Int(tsTextField.text!)!
                         if (tsvi < 0 || tsvi > Int(INT_MAX)) {
                             errorText.text="Valid TS values in Decimal mode are 0 to "+String(INT_MAX)
                             self.view.endEditing(true)
                         }
                         else {
-                            var tsv:NSTimeInterval=NSTimeInterval(tsvi)
+                            let tsv:NSTimeInterval=NSTimeInterval(tsvi)
                             now=NSDate(timeIntervalSince1970: tsv)
                             populateDisplay(Int(tsv), now:now)
                             self.view.endEditing(true)
@@ -172,7 +175,7 @@ class ViewController: UIViewController, ADBannerViewDelegate {
                 }
                 else {
                     // hex validation
-                    var scanner=NSScanner(string: tsTextField.text)
+                    let scanner=NSScanner(string: tsTextField.text!)
                     var result : UInt32 = 0
                     if scanner.scanHexInt(&result) {
                         if (result > 0x7fffffff) {
@@ -180,7 +183,7 @@ class ViewController: UIViewController, ADBannerViewDelegate {
                             self.view.endEditing(true)
                         }
                         else {
-                            var tsv:NSTimeInterval=NSTimeInterval(result)
+                            let tsv:NSTimeInterval=NSTimeInterval(result)
                             now=NSDate(timeIntervalSince1970: tsv)
                             populateDisplay(Int(tsv), now:now)
                             self.view.endEditing(true)
@@ -242,15 +245,15 @@ class ViewController: UIViewController, ADBannerViewDelegate {
     
     func populateFromTS(currFormatIsHex:Bool) {
         if (!currFormatIsHex) {
-            if tsTextField.text.toInt() != nil {
-                var tsvi=tsTextField.text.toInt()!
+            if Int(tsTextField.text!) != nil {
+                let tsvi=Int(tsTextField.text!)!
                 if (tsvi < 0 || tsvi > Int(INT_MAX)) {
                     tsTextField.text=""
                     self.view.endEditing(true)
                 }
                 else {
-                    var tsv:NSTimeInterval=NSTimeInterval(tsvi)
-                    var now=NSDate(timeIntervalSince1970: tsv)
+                    let tsv:NSTimeInterval=NSTimeInterval(tsvi)
+                    let now=NSDate(timeIntervalSince1970: tsv)
                     populateDisplay(Int(tsv), now:now)
                     self.view.endEditing(true)
                 }
@@ -262,7 +265,7 @@ class ViewController: UIViewController, ADBannerViewDelegate {
         }
         else {
             // hex validation
-            var scanner=NSScanner(string: tsTextField.text)
+            let scanner=NSScanner(string: tsTextField.text!)
             var result : UInt32 = 0
             if scanner.scanHexInt(&result) {
                 if (result > 0x7fffffff) {
@@ -270,7 +273,7 @@ class ViewController: UIViewController, ADBannerViewDelegate {
                     self.view.endEditing(true)
                 }
                 else {
-                    var tsv:NSTimeInterval=NSTimeInterval(result)
+                    let tsv:NSTimeInterval=NSTimeInterval(result)
                     var now:NSDate
                     now=NSDate(timeIntervalSince1970: tsv)
                     populateDisplay(Int(tsv), now:now)
@@ -286,14 +289,14 @@ class ViewController: UIViewController, ADBannerViewDelegate {
     
     func populateNow () {
         
-        var now=NSDate()
-        var tif=now.timeIntervalSince1970;
+        let now=NSDate()
+        let tif=now.timeIntervalSince1970;
         NSLog("populateNow %f", tif)
-        var ti:Int=Int(tif)
+        let ti:Int=Int(tif)
         populateDisplay(ti, now:now)
     }
     
-    func populateDisplay(var ti:Int, var now:NSDate) {
+    func populateDisplay(ti:Int, now:NSDate) {
         if dohex {
             tsTextField.text=String(format:"%x", ti)
         }
@@ -301,7 +304,7 @@ class ViewController: UIViewController, ADBannerViewDelegate {
             tsTextField.text=String(format:"%u", ti)
         }
         let cal=NSCalendar.currentCalendar()
-        let comp=cal.components((.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit | .HourCalendarUnit | .MinuteCalendarUnit | .SecondCalendarUnit), fromDate:now)
+        let comp=cal.components(([.NSYearCalendarUnit, .NSMonthCalendarUnit, .NSDayCalendarUnit, .NSHourCalendarUnit, .NSMinuteCalendarUnit, .NSSecondCalendarUnit]), fromDate:now)
             
         yearTextField.text=String(format: "%04d",comp.year)
         monthTextField.text=String(format: "%02d", comp.month)
@@ -326,7 +329,7 @@ class ViewController: UIViewController, ADBannerViewDelegate {
         
         if autoManualValue.selectedSegmentIndex == 0 {
             // manual update
-            timer.invalidate()
+            _ = NSTimer()
             nowButton.enabled=true
             recalcButton.enabled=true
             enabled=true
@@ -357,7 +360,7 @@ class ViewController: UIViewController, ADBannerViewDelegate {
     }
     
     @IBAction func hexDecSelect(sender: AnyObject) {
-        var currFormatIsHex:Bool=dohex
+        let currFormatIsHex:Bool=dohex
         if hexDecValue.selectedSegmentIndex == 0 {
             dohex=false
             tsTextField.keyboardType=UIKeyboardType.NumberPad
@@ -367,7 +370,7 @@ class ViewController: UIViewController, ADBannerViewDelegate {
             tsTextField.keyboardType=UIKeyboardType.Default
         }
         
-        if (tsTextField.text.isEmpty) {
+        if (tsTextField.text!.isEmpty) {
             if (tsEdited) {
                 populateNow()
             }

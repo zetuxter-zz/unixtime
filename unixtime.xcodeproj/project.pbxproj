@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DA06A09C1A69B05E0027176A /* unixts58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = DA06A0981A69B05E0027176A /* unixts58x58.png */; };
-		DA06A09D1A69B05E0027176A /* unixts80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = DA06A0991A69B05E0027176A /* unixts80x80.png */; };
-		DA06A09E1A69B05E0027176A /* unixts120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = DA06A09A1A69B05E0027176A /* unixts120x120.png */; };
-		DA06A09F1A69B05E0027176A /* unixts180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = DA06A09B1A69B05E0027176A /* unixts180x180.png */; };
 		DA06A0A11A69B2520027176A /* unixts87x87.png in Resources */ = {isa = PBXBuildFile; fileRef = DA06A0A01A69B2520027176A /* unixts87x87.png */; };
+		DA730FF41C0DE760005575AC /* unixts180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = DA730FF31C0DE760005575AC /* unixts180x180.png */; };
+		DA730FF61C0DE784005575AC /* unixts58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = DA730FF51C0DE784005575AC /* unixts58x58.png */; };
+		DA730FF91C0DE79C005575AC /* unixts120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = DA730FF71C0DE79C005575AC /* unixts120x120.png */; };
+		DA730FFA1C0DE79C005575AC /* unixts180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = DA730FF81C0DE79C005575AC /* unixts180x180.png */; };
 		DA7FF9501A64638B0035623E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7FF94F1A64638B0035623E /* AppDelegate.swift */; };
 		DA7FF9521A64638B0035623E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7FF9511A64638B0035623E /* ViewController.swift */; };
 		DA7FF9551A64638B0035623E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA7FF9531A64638B0035623E /* Main.storyboard */; };
@@ -32,11 +32,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DA06A0981A69B05E0027176A /* unixts58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unixts58x58.png; path = ../../../../Dropbox/unixts58x58.png; sourceTree = "<group>"; };
-		DA06A0991A69B05E0027176A /* unixts80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unixts80x80.png; path = ../../../../Dropbox/unixts80x80.png; sourceTree = "<group>"; };
-		DA06A09A1A69B05E0027176A /* unixts120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unixts120x120.png; path = ../../../../Dropbox/unixts120x120.png; sourceTree = "<group>"; };
-		DA06A09B1A69B05E0027176A /* unixts180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unixts180x180.png; path = ../../../../Dropbox/unixts180x180.png; sourceTree = "<group>"; };
 		DA06A0A01A69B2520027176A /* unixts87x87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unixts87x87.png; sourceTree = "<group>"; };
+		DA730FF31C0DE760005575AC /* unixts180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unixts180x180.png; path = Images.xcassets/AppIcon.appiconset/unixts180x180.png; sourceTree = "<group>"; };
+		DA730FF51C0DE784005575AC /* unixts58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unixts58x58.png; sourceTree = "<group>"; };
+		DA730FF71C0DE79C005575AC /* unixts120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unixts120x120.png; sourceTree = "<group>"; };
+		DA730FF81C0DE79C005575AC /* unixts180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unixts180x180.png; sourceTree = "<group>"; };
 		DA7FF94A1A64638B0035623E /* unixtime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = unixtime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7FF94E1A64638B0035623E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA7FF94F1A64638B0035623E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,11 +91,11 @@
 		DA7FF94C1A64638B0035623E /* unixtime */ = {
 			isa = PBXGroup;
 			children = (
-				DA06A0981A69B05E0027176A /* unixts58x58.png */,
+				DA730FF31C0DE760005575AC /* unixts180x180.png */,
+				DA730FF51C0DE784005575AC /* unixts58x58.png */,
+				DA730FF71C0DE79C005575AC /* unixts120x120.png */,
+				DA730FF81C0DE79C005575AC /* unixts180x180.png */,
 				DA06A0A01A69B2520027176A /* unixts87x87.png */,
-				DA06A0991A69B05E0027176A /* unixts80x80.png */,
-				DA06A09A1A69B05E0027176A /* unixts120x120.png */,
-				DA06A09B1A69B05E0027176A /* unixts180x180.png */,
 				DA7FF94F1A64638B0035623E /* AppDelegate.swift */,
 				DA7FF9511A64638B0035623E /* ViewController.swift */,
 				DA7FF9531A64638B0035623E /* Main.storyboard */,
@@ -175,7 +175,9 @@
 		DA7FF9421A64638B0035623E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastSwiftMigration = 0710;
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = Paul;
 				TargetAttributes = {
 					DA7FF9491A64638B0035623E = {
@@ -212,13 +214,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA7FF9551A64638B0035623E /* Main.storyboard in Resources */,
+				DA730FFA1C0DE79C005575AC /* unixts180x180.png in Resources */,
+				DA730FF91C0DE79C005575AC /* unixts120x120.png in Resources */,
+				DA730FF41C0DE760005575AC /* unixts180x180.png in Resources */,
 				DA7FF95A1A64638C0035623E /* LaunchScreen.xib in Resources */,
 				DA7FF9571A64638C0035623E /* Images.xcassets in Resources */,
 				DA06A0A11A69B2520027176A /* unixts87x87.png in Resources */,
-				DA06A09F1A69B05E0027176A /* unixts180x180.png in Resources */,
-				DA06A09D1A69B05E0027176A /* unixts80x80.png in Resources */,
-				DA06A09C1A69B05E0027176A /* unixts58x58.png in Resources */,
-				DA06A09E1A69B05E0027176A /* unixts120x120.png in Resources */,
+				DA730FF61C0DE784005575AC /* unixts58x58.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +301,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -363,7 +366,9 @@
 				INFOPLIST_FILE = unixtime/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.pstproductions.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -374,7 +379,9 @@
 				INFOPLIST_FILE = unixtime/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.pstproductions.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -392,6 +399,7 @@
 				);
 				INFOPLIST_FILE = unixtimeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.pstproductions.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/unixtime.app/unixtime";
 			};
@@ -407,6 +415,7 @@
 				);
 				INFOPLIST_FILE = unixtimeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.pstproductions.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/unixtime.app/unixtime";
 			};
